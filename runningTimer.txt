@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tomato Main Page</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="layout.css">
+  <script src="timer.js"></script>
+</head>
+
+<style>
+body {
+	background-color: lightgrey;
+}
+</style>
+
+
+<body>
+	<h1 style="text-align:center; color:black"><b>Pomodoro</b></h1>
+
+	<div class="container">
+	<p></p>
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5" style="text-align:center"><h3>Toggle 1 Here<h3></div>
+		<div class="col-sm-5" style="text-align:center"><h3>Toggle 2 Here<h3></div>
+		<div class="col-sm-1"></div>
+	</div>
+	<div class="row">
+		<div class="span4"></div>
+		<div class="span4"><img class="center-block" src="tomato4.png" />
+			<span id="time">TIMER HERE</span>
+		</div>
+		<div class="span4"></div>
+	</div>
+	<div class="row">
+		<form action="index.html" method="GET" onsubmit="return doFunction()">
+			<div>
+				<label>Study Time:</label>
+				<input type="num1" id="num1" name="num1" />
+			</div>
+			<div>
+				<label>Break Time:</label>
+				<input type="num2" id="num2" name="num2" />
+			</div>
+			<div class="button">
+				<button type="submit">Start</button>
+			</div>
+		</form>
+	</div>
+	
+
+</body>
+</html>

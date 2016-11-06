@@ -1,0 +1,14 @@
+.buttonStart {
+	position:absolute;right:50%;top:50%;
+}
+
+.buttonBottomLeft {
+	position:absolute;bottom:0;left:0;
+}
+.buttonBottomRight {
+	position:absolute;bottom:0;right:0;
+}
+
+.buttonCenter {
+	position:absolute; right:50%;
+}
