@@ -1,3 +1,6 @@
+body{
+	background: #f2f2f2;
+}
 .buttonStart {
 	position:absolute;right:50%;top:50%;
 }
@@ -11,4 +14,72 @@
 
 .buttonCenter {
 	position:absolute; right:50%;
+}
+h3#time {
+    display: inline-block;
+    margin: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
+.reset{
+	padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background: #2d7090;
+    color: #fff;
+}
+#timer-set {
+    width: 150px;
+    margin: auto;
+    text-align: center;
+    margin-top: -200px;
+}
+#timer-set input {
+    border: none;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 2px;
+    text-align: center;
+    width: 100%;
+}
+button#Set {
+    display: block;
+    width: 100%;
+    background: #1ba4d8;
+    position: relative;
+    border: none;
+    margin: auto;
+    border-radius: 2px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+button#Start {
+    display: block;
+    background: #27d81b;
+    position: relative;
+    border: none;
+    margin: auto;
+    border-radius: 2px;
+    color: #fff;
+    width: 100%;
+}
+.start-button,
+.set-button{
+	width: 50%;
+}
+.set-button{
+	float: left;
+	padding-right: 5px;
+}
+.start-button{
+	float: right;
+}
+#t1,
+#t2 {
+    display: inline-block;
+    background: #fff;
+    padding: 10px 20px;
+    margin: 0px;
+    border-radius: 3px;
 }

@@ -15,12 +15,6 @@
   <script src="timer.js"></script>
 </head>
 
-<style>
-body {
-	background-color: lightgrey;
-}
-</style>
-
 
 <body>
 	<h1 style="text-align:center; color:black"><b>Pomodoro</b></h1>
@@ -28,22 +22,20 @@ body {
 	<div class="container">
 	<p></p>
 	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-5" style="text-align:center"><h3>Space Holder<h3></div>
-		<div class="col-sm-5" style="text-align:center"><h3>Space Holder<h3></div>
-		<div class="col-sm-1"></div>
+		<div class="col-sm-6" style="text-align:center"><h3>Space Holder<h3></div>
+		<div class="col-sm-6" style="text-align:center"><h3>Space Holder<h3></div>
 	</div>
 	<div class="row">
-		<div class="span4"></div>
-		<div class="span4"><img class="center-block" src="tomato4.png" />
-			<span style="text-align:center"><h3 id="time"></h3></span>
+		<div class="span4"><img style="width: 350px !important;" class="center-block" src="tomato4.svg" />
+			<div style="text-align:center; margin-top: -190px;">
+				<h3 id="time"></h3>
+			</div>
 		</div>
-		<div class="span4"></div>
 	</div>
 	<div class="row">
 		<form action="index.html" method="GET" onsubmit="return doFunction()">
 			<div style="text-align:center" class="button">
-				<button type="submit">Reset</button>
+				<button class="reset" type="submit">Reset</button>
 			</div>
 		</form>
 	</div>
