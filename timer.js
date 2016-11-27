@@ -1,7 +1,8 @@
 function startTimer(duration, display, bt) {
     var timer = duration, minutes, seconds;
+    var bool = 0;
+    var breakNumber = 0;
     setInterval(function () {
-		var bool = 0;
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
 
@@ -9,19 +10,22 @@ function startTimer(duration, display, bt) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
+	//display.textContent = bool;
 /*
         if (--timer < 0) {
             timer = duration;
         }
 */
-		--timer;
-		if (timer < 0 && bool == 0) {
-            timer = bt;
-			bool = 1;
+	--timer;
+
+	if (timer < 0 && bool == 0) {
+		timer = bt;
+		bool = 1;
         } else if (timer < 0 && bool == 1) {
-			timer = duration;
-			bool = 0;
-		}
+		timer = duration;
+		bool = 0;
+		breakNumer++;
+	}
 		
 		
     }, 1000);
