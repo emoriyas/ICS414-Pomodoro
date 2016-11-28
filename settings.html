@@ -36,12 +36,9 @@ body {
 
 			<form>
 
-				<select name="Alarm Sound">
-					<option value="audio1">Audio1</option>
-					<option value="audio2">Audio2</option>
-					<option value="audio3">Audio3</option>
-					<option value="audio4">Audio4</option>
-					<option value="audio5">Audio5</option>
+				<select id="aud" name="Alarm Sound">
+					<option value="alarm.mp3">alarm</option>
+					<option value="audio1.mp3">horns</option>
 				</select>
 
 				<p>preview</p>
@@ -49,9 +46,9 @@ body {
 				<br>
 
 				<label>Breaks per session:</label>
-				<input type="set1" id="set1" name="set1" /> <br>
+				<input type="set1" id="breakN" name="set1" /> <br>
 
-				<button id="Apply" type="submit">Apply</button>
+				<button id="setting" type="submit">Apply</button>
 
 			</form>
 
