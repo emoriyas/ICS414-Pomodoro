@@ -2,13 +2,13 @@ function startTimer(duration, display, bt) {
     var timer = duration, minutes, seconds;
     var bool = 0;
     var breakNumber = 0;
-    var audioFile = sessionStorage.getItem('audio');
-    var alarm = new Audio(audioFile);
+    var audiofile;
+    //var audioFile = sessionStorage.getItem('studyAudio');
+    //var alarm = new Audio(audioFile);
 
+    var studyAud = sessionStorage.getItem('studyAudio');
+    var breakAud = sessionStorage.getItem('breakAudio');
 
-    //I tried to have two separate files, but it didn't work
-    //var alarm = new Audio('alarm.mp3');
-    //var break = new Audio('break.mp3');
     setInterval(function () {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
@@ -17,34 +17,26 @@ function startTimer(duration, display, bt) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
-
 	--timer;
-/*
-	if (timer < 0 && bool == 0) {
-		timer = bt;
-		bool = 1;
-        } else if (timer < 0 && bool == 1) {
-		timer = duration;
-		bool = 0;
-		breakNumer++;
-	}
-*/
 
 	if (timer < 0 && breakNumber == 3) {
 		timer = bt*3; //The length of the extended break should be 3 times BT, but it doesn't work
-		bool = 0;
+		bool = 1;
 		breakNumer = 0;
-		alarm.play();
+		//alarm.play();
+		playAudio(breakAud);
 	}
 	if (timer < 0 && bool == 0) {
 		timer = bt;
 		bool = 1;
-		alarm.play();
+		//alarm.play();
+		playAudio(breakAud);
         } else if (timer < 0 && bool == 1) {
 		timer = duration;
 		bool = 0;
-		breakNumer++;
-		alarm.play();
+		breakNumber++;
+		//alarm.play();
+		playAudio(studyAud);
 	}
 		
 		
@@ -84,13 +76,13 @@ $(document).ready(function(){
 	}
 	sessionStorage.setItem('t2', bTime);
 
-	if (sessionStorage.getItem('audio') != null) {
-		alarm = sessionStorage.getItem('audio');
+	if (sessionStorage.getItem('studyAudio') == null) {
+		sessionStorage.setItem('studyAudio', 'alarm.mp3');
 	}
-	else {
-		alarm= 'alarm.mp3';
+
+	if (sessionStorage.getItem('breakAudio') == null) {
+		sessionStorage.setItem('studyAudio', 'alarm.mp3');
 	}
-	sessionStorage.setItem('audio', alarm);
 
 
         //sTime = sessionStorage.getItem('t1');
@@ -120,10 +112,21 @@ before going on the long break
 
 $(document).ready(function(){
     $("#setting").click(function() {
-        ad = document.getElementById("aud").value;
+        sa = document.getElementById("sa").value;
+        ba = document.getElementById("ba").value;
 	bn = document.getElementById("breakN").value;
-	sessionStorage.setItem('audio', ad);
+	sessionStorage.setItem('studyAudio', sa);
+	sessionStorage.setItem('breakAudio', ba);
 	sessionStorage.setItem('breakNum', bn);
 	window.location.assign("index.html");
     });
 });
+
+/*
+This method will play the audio
+*/
+function playAudio(audioFile) {
+	var audio = new Audio(audioFile);
+	//var audio = new Audio('alarm.mp3');
+	audio.play();
+}
