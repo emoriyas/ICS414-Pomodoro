@@ -1,8 +1,10 @@
 function startTimer(duration, display, bt) {
     var timer = duration, minutes, seconds;
-    var bool = 0;
+    var bool = 0; // 0 = currently study time. 1 = currently break time
     var breakNumber = 0;
     var audiofile;
+    var bPerSession = sessionStorage.getItem('breakNum');
+    var longBreakTime = sessionStorage.getItem('longBreakTime') * 60;
     //var audioFile = sessionStorage.getItem('studyAudio');
     //var alarm = new Audio(audioFile);
 
@@ -19,23 +21,20 @@ function startTimer(duration, display, bt) {
         display.textContent = minutes + ":" + seconds;
 	--timer;
 
-	if (timer < 0 && breakNumber == 3) {
-		timer = bt*3; //The length of the extended break should be 3 times BT, but it doesn't work
+	if (timer < 0 && bool == 0) { //going into break
+
+		if (breakNumber >= bPerSession) { //checks for long break
+			timer = longBreakTime;
+			breakNumer = 0;
+		} else {
+			timer = bt;
+			breakNumber++;
+		}
 		bool = 1;
-		breakNumer = 0;
-		//alarm.play();
 		playAudio(breakAud);
-	}
-	if (timer < 0 && bool == 0) {
-		timer = bt;
-		bool = 1;
-		//alarm.play();
-		playAudio(breakAud);
-        } else if (timer < 0 && bool == 1) {
+        } else if (timer < 0 && bool == 1) { //going into study
 		timer = duration;
 		bool = 0;
-		breakNumber++;
-		//alarm.play();
 		playAudio(studyAud);
 	}
 		
@@ -84,6 +83,10 @@ $(document).ready(function(){
 		sessionStorage.setItem('studyAudio', 'alarm.mp3');
 	}
 
+	if (sessionStorage.getItem('longBreakTime') == null) {
+		sessionStorage.setItem('longBreakTime', 30);
+	}
+
 
         //sTime = sessionStorage.getItem('t1');
 	//bTime = sessionStorage.getItem('t2');
@@ -115,9 +118,11 @@ $(document).ready(function(){
         sa = document.getElementById("sa").value;
         ba = document.getElementById("ba").value;
 	bn = document.getElementById("breakN").value;
+	lb = document.getElementById("lb").value;
 	sessionStorage.setItem('studyAudio', sa);
 	sessionStorage.setItem('breakAudio', ba);
 	sessionStorage.setItem('breakNum', bn);
+	sessionStorage.setItem('longBreakTime', lb);
 	window.location.assign("index.html");
     });
 });
