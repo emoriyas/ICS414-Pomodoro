@@ -24,10 +24,11 @@ function startTimer(duration, display, bt) {
 	if (timer < 0 && bool == 0) { //going into break
 
 		if (breakNumber >= bPerSession) { //checks for long break
-			window.alert("Break Time");
+			window.alert("Long Break Time");
 			timer = longBreakTime;
 			breakNumer = 0;
 		} else {
+			window.alert("Break Time");
 			timer = bt;
 			breakNumber++;
 		}
@@ -52,30 +53,45 @@ window.onload = function () {
 		display = document.querySelector('#time');
 		startTimer(sTime, display, bTime);
 	}
+
+
+
+    if (window.location.href.match('index.html') != null) {
+
+		sTime = sessionStorage.getItem('t1');
+		bTime = sessionStorage.getItem('t2');
+
+		if(sTime == null) {
+			sTime = 25;
+		}
+		if(bTime == null) {
+			bTime = 5;
+		}
+
+		$("#t1").empty();
+		$("#t2").empty();
+		$("#t1").append(sTime);
+		$("#t2").append(bTime);
+		
+    }
+
+
 };
 
-	
+
+
 $(document).ready(function(){
     $("#Start").click(function() {
 
 
 	//checks if any of the variables are null, if they are set to the default value
-	if (sessionStorage.getItem('t1') != null) {
-        	sTime = sessionStorage.getItem('t1');
+	if (sessionStorage.getItem('t1') == null) {
+		sessionStorage.setItem('t1', 25);
 	}
-	else {
-		sTime = 25;
-		
-	}
-	sessionStorage.setItem('t1', sTime);
 
-	if (sessionStorage.getItem('t2') != null) {
-		bTime = sessionStorage.getItem('t2');
+	if (sessionStorage.getItem('t2') == null) {
+		sessionStorage.setItem('t2', 5);
 	}
-	else {
-		bTime = 5;
-	}
-	sessionStorage.setItem('t2', bTime);
 
 	if (sessionStorage.getItem('studyAudio') == null) {
 		sessionStorage.setItem('studyAudio', 'alarm.mp3');
@@ -83,6 +99,10 @@ $(document).ready(function(){
 
 	if (sessionStorage.getItem('breakAudio') == null) {
 		sessionStorage.setItem('studyAudio', 'alarm.mp3');
+	}
+
+	if (sessionStorage.getItem('breakNum') == null) {
+		sessionStorage.setItem('breakNum', 3);
 	}
 
 	if (sessionStorage.getItem('longBreakTime') == null) {
