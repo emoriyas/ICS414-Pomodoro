@@ -24,6 +24,7 @@ function startTimer(duration, display, bt) {
 	if (timer < 0 && bool == 0) { //going into break
 
 		if (breakNumber >= bPerSession) { //checks for long break
+			window.alert("Break Time");
 			timer = longBreakTime;
 			breakNumer = 0;
 		} else {
@@ -34,6 +35,7 @@ function startTimer(duration, display, bt) {
 		playAudio(breakAud);
         } else if (timer < 0 && bool == 1) { //going into study
 		timer = duration;
+		window.alert("Study Time");
 		bool = 0;
 		playAudio(studyAud);
 	}
