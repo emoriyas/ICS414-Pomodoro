@@ -15,6 +15,45 @@ body{
 .buttonCenter {
 	position:absolute; right:50%;
 }
+label {
+    margin: 15px 0px 5px 0px;
+    width: 100%;
+    display: block;
+}
+input#breakN,
+select#ba,
+select#sa {
+    width: 100%;
+}
+.settings-container {
+    margin: auto;
+    width: 300px;
+}
+button#setting {
+    width: 100%;
+    background: #1ba4d8;
+    color: #fff;
+    border-radius: 2px;
+    margin: 10px 0px;
+    border:none;
+}
+input#back-button {
+    width: 100%;
+    background: #a2a2a2;
+    color: #fff;
+    border-radius: 2px;
+    margin: 0px;
+    border: none;
+}
+form#settings button {
+    border: none;
+    border-radius: 2px;
+    background: #fff;
+    font-size: 15px;
+    font-weight: normal;
+    color: #3b77a0;
+    padding: 5px;
+}
 h3#time {
     display: inline-block;
     margin: 10px;

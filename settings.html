@@ -15,61 +15,36 @@
   <script src="timer.js"></script>
 </head>
 
-<style>
-body {
-	background-color: lightgrey;
-}
-</style>
-
-
 <body>
 	<h1 style="text-align:center; color:black"><b>Pomodoro Settings</b></h1>
+	<div class="settings-container">
+		<div class="row">
+				<form>
+					<label>Study Alarm</label>
+					<select id="sa" name="Study Sound">
+						<option value="alarm.mp3">alarm</option>
+						<option value="audio1.mp3">horns</option>
+					</select>
 
-	<div class="container">
-	<p></p>
+
+					<label>Break Alarm</label>
+					<select id="ba" name="Break Sound">
+						<option value="alarm.mp3">alarm</option>
+						<option value="audio1.mp3">horns</option>
+					</select>
 
 
-	<div class="row">
-		<div class="col-sm-1"></div>
-		<div class="col-sm-5">
-			
-			<form>
+					<label>Breaks per session:</label>
+					<input type="set1" id="breakN" name="set1" /> <br>
 
-				<label>Study Alarm</label>
-				<select id="sa" name="Study Sound">
-					<option value="alarm.mp3">alarm</option>
-					<option value="audio1.mp3">horns</option>
-				</select>
+					<button id="setting" type="submit">Apply</button>
 
-				<br>
-
-				<label>Break Alarm</label>
-				<select id="ba" name="Break Sound">
-					<option value="alarm.mp3">alarm</option>
-					<option value="audio1.mp3">horns</option>
-				</select>
-
-				<br>
-
-				<p>preview</p>
-
-				<br>
-
-				<label>Breaks per session:</label>
-				<input type="set1" id="breakN" name="set1" /> <br>
-
-				<button id="setting" type="submit">Apply</button>
-
-			</form>
-
+				</form>
+				<form action="index.html">
+		    	<input id="back-button" type="submit" value="Back" />
+				</form>
 		</div>
 	</div>
-
-
-<form action="index.html">
-    <input type="submit" value="back" />
-</form>
-	
 
 </body>
 </html>
