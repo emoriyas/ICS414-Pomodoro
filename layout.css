@@ -108,16 +108,12 @@ button#Start {
     color: #fff;
     width: 100%;
 }
-.start-button,
-.set-button{
-	width: 50%;
+.start-button{
+	width: 100%;
 }
 .set-button{
 	float: left;
 	padding-right: 5px;
-}
-.start-button{
-	float: right;
 }
 #t1,
 #t2 {
