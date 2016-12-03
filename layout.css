@@ -29,6 +29,12 @@ input#lb,
 input#breakN{
     width: 100%;
     margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+}
+input#lb {
+    margin-bottom: 10px;
 }
 .settings-container {
     margin: auto;
@@ -44,11 +50,12 @@ button#setting {
 }
 input#back-button {
     width: 100%;
-    background: #a2a2a2;
+    background: #2e9eb7;
     color: #fff;
     border-radius: 2px;
     margin: 0px;
     border: none;
+    padding: 10px;
 }
 form#settings button {
     border: none;
@@ -107,6 +114,7 @@ button#Start {
     border-radius: 2px;
     color: #fff;
     width: 100%;
+    padding: 5px;
 }
 .start-button{
 	width: 100%;
